@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sleeping ASMR</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:400,500,600,700,900&display=swap" rel="stylesheet"/>
+	
+	<style type="text/css">
+		html{font-family: 'Noto Sans KR', sons-serif;}
+		body{margin: 0;
+			background: url("ddongee3.gif");
+			background-size: 100% auto;
+			background-repeat: no-repeat
+			background-attachment: fixed;}
+
+		section{width: 130px; height: 50px; margin: auto;
+				display: flex;
+				justify-content: center;}
+
+		div{text-align: center; margin-top: 30px; margin-left: 60px; margin-right: 60px;}
+
+		/*button{width: 130px; height: 50px;
+			   border-radius: 50px;
+			   border-color: none;
+			   background: orange;}*/
+
+		.button {background-color: darkgray;
+			     width: 150px; height: 45px;
+			     border-radius: 50px;
+				 border: none;
+				 color: white;
+				 text-align: center;
+				 text-decoration: none;
+				 display: inline-block;
+				 transition-duration: 0.4s;
+				 cursor: pointer;}
+
+		.button1 {background-color: darkgray;
+				  color: white; 
+				  border: 0px solid darkgray;}
+
+		.button1:hover {
+				  background-color: orange;
+				  color: white;}
+
+		.slidecontainer {width: 90%; margin: 0 auto; justify-content: center; align-items: center; margin-top: 15px;}
+
+		.slider {
+ 				-webkit-appearance: none;
+ 				width: 100%;
+  				height: 5px;
+  				border-radius: 5px;
+  				background: #d3d3d3;
+ 				outline: none;
+  				opacity: 0.7;
+  				-webkit-transition: .1s;
+  				transition: opacity .0.5s;
+				}
+
+		.slider:hover {
+		  		opacity: 1;
+				}
+
+		.slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 35px;
+				height: 35px;
+				border: 0;
+				background: url('jelly.png');
+				background-size: cover;
+		  		background-repeat: no-repeat
+				cursor: pointer;
+				}
+
+		.slider::-moz-range-thumb {
+		  		width: 35px;
+		  		height: 35px;
+		  		border: 0;
+		  		background: url('jelly.png');
+		  		background-size: cover;
+		  		background-repeat: no-repeat;
+		  		cursor: pointer;
+		  		}
+
+		.titletext{font-size: 2.3em; color: white; font-weight: 500; padding-top: 30px; text-align: center;}
+		.buttext{font-size: 1.2em; color: white; font-weight: 500; font-style: italic; text-align: center;}
+	
+	</style>
+</head>
+<body>
+	<header>
+		<div>
+			<p class="titletext">낮잠잘때,, ASMR</p>
+		</div>
+
+		<section>
+			<div class="button">
+				<button class="button button1 buttext" id="sp1But">Sleep1</button>
+				<audio id="sleep1Snd" src="sleep1.mp3"></audio>
+				<div class="slidecontainer">
+  					<input type="range" min="0" max="100" value="100" class="slider" id="sleep1vol" >
+				</div>
+			</div>
+
+			<div class="button">
+				<button class="button button1 buttext" id="sp2But"> Sleep2 </button>
+				<audio id="sleep2Snd" src="sleep2.mp3"></audio>
+				<div class="slidecontainer">
+  					<input type="range" min="0" max="100" value="100" class="slider" id="sleep2vol">
+				</div>
+			</div>
+
+			<div class="button">
+				<button class="button button1 buttext" id="wpBut"> 일어나 </button>
+				<audio id="wakeSnd" src="wake.mp3"></audio>
+				<div class="slidecontainer">
+  					<input type="range" min="0" max="100" value="40" class="slider" id="wakevol">
+				</div>
+			</div>
+		</section>
+	</header>
+
+
+	<script type="text/javascript">
+
+		var state = false;
+
+		sp1But.onclick = function(){
+			if(!state){
+				sleep1Snd.play();
+				state = true;}
+			else{
+				sleep1Snd.pause();
+				state = false;
+			}
+		}
+
+		sp2But.onclick = function(){
+			if(!state){
+				sleep2Snd.play();
+				state = true;}
+			else{
+				sleep2Snd.pause();
+				state = false;
+			}
+		}
+
+		wpBut.onclick = function(){
+			if(!state){
+				wakeSnd.play();
+				state = true;}
+			else{
+				wakeSnd.pause();
+				state = false;
+			}
+		}
+
+
+		sleep1vol.oninput = function(){
+			sleep1Snd.volume = sleep1vol.value/100;}
+
+		sleep2vol.oninput = function(){
+			sleep2Snd.volume = sleep2vol.value/100;}
+
+		wakevol.oninput = function(){
+			wakeSnd.volume = wakevol.value/100;}
+
+	</script>
+
+</body>
+</html>
